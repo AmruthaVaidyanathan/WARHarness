@@ -2,7 +2,7 @@ package edu.cityuniversity.warharness.service.handler;
 
 public class HttpRequestHandler implements RequestHandler {
 
-    String message = "This is a message from the handler";
+    String message = "This is a message from the handler for my love Amu Kundu";
     String response = "{\"message\" : \"" + this.message + "\" }";
 
     @Override

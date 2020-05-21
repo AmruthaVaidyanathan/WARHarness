@@ -1,4 +1,4 @@
-package edu.cityuniversity.warharness.service.routes;
+package edu.cityuniversity.warharness.service.servlet;
 
 import edu.cityuniversity.warharness.service.context.DefaultServiceContext;
 import edu.cityuniversity.warharness.service.context.ServiceContext;
@@ -25,13 +25,11 @@ import java.io.PrintWriter;
 )
 public class APIServlet extends HttpServlet {
 
-    private String message;
     private ServiceContext serviceContext;
     private RequestHandler<Request, Response> handler;
 
     public void init() {
         // Do required initialization
-        this.message = "Hello World";
         this.serviceContext = new DefaultServiceContext();
         this.handler = new HttpRequestHandler();
 
@@ -53,12 +51,8 @@ public class APIServlet extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Set response content type
-        response.setContentType("text/html");
-
-        // Actual logic goes here.
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + this.message + "</h1>");
+        // TODO: Have separate logic to get items from request body for a POST request
+        doGet(request, response);
     }
 
     public void destroy() {

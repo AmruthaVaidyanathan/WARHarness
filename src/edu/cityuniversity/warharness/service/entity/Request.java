@@ -48,17 +48,18 @@ public class Request {
         return queryParamBuilder.build();
     }
 
-    public Map<String, String> headers() {
-        return this.headers;
-    }
-
-    public Map<String, String> queryParams() {
-        return this.queryParams;
-    }
-
     public Optional<String> queryValue(String key) {
-        if (queryParams.containsKey(key)) {
-            return Optional.of(queryParams.get(key));
+        return getString(key, queryParams);
+    }
+
+    public Optional<String> header(String key) {
+        return getString(key, headers);
+    }
+
+    private static Optional<String> getString(String key, Map<String, String> headers) {
+        System.out.println(headers);
+        if (headers.containsKey(key)) {
+            return Optional.of(headers.get(key));
         }
 
         return Optional.empty();

@@ -14,4 +14,12 @@ public class ErrorResponses {
                 .withPayload("{\"message\" : \"Throttled by rate limiter\"}")
                 .build();
     }
+
+    public static Response notAuthenticated() {
+        return Response.builder()
+                .withContentType("application/json")
+                .withStatusCode(403)
+                .withPayload("{\"message\" : \"Unrecognized caller\"}")
+                .build();
+    }
 }

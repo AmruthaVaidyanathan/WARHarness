@@ -1,16 +1,18 @@
-package edu.cityuniversity.warharness.service.handler;
+package edu.cityuniversity.warharness.service.entity;
 
 /**
- * @author rajarar
+ *
  */
 public class Response {
 
     private final String contentType;
     private final String payload;
+    private final int statusCode;
 
-    private Response(String contentType, String payload) {
-        this.contentType = contentType;
-        this.payload = payload;
+    private Response(Builder builder) {
+        this.contentType = builder.contentType;
+        this.payload = builder.payload;
+        this.statusCode = builder.statusCode;
     }
 
     public String contentType() {
@@ -21,17 +23,27 @@ public class Response {
         return payload;
     }
 
+    public int statusCode() {
+        return statusCode;
+    }
+
     public static Builder builder() {
         return new Builder();
     }
 
-    static class Builder {
+    public static class Builder {
 
         private String contentType;
         private String payload;
+        private int statusCode;
 
         public Builder withContentType(String contentType) {
             this.contentType = contentType;
+            return this;
+        }
+
+        public Builder withStatusCode(int statusCode) {
+            this.statusCode = statusCode;
             return this;
         }
 
@@ -41,7 +53,7 @@ public class Response {
         }
 
         public Response build() {
-            return new Response(this.contentType, this.payload);
+            return new Response(this);
         }
     }
 }

@@ -1,8 +1,12 @@
-package edu.cityuniversity.warharness.service.handler;
+package edu.cityuniversity.warharness.service.handler.request;
+
+import edu.cityuniversity.warharness.service.entity.Request;
+import edu.cityuniversity.warharness.service.handler.RequestHandler;
+import edu.cityuniversity.warharness.service.entity.Response;
 
 public class HttpRequestHandler implements RequestHandler {
 
-    String message = "This is a message from the handler for my love Amu Kundu";
+    String message = "This is a message from the Request Handler";
     String response = "{\"message\" : \"" + this.message + "\" }";
 
     @Override

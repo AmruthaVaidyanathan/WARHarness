@@ -2,10 +2,10 @@ package edu.cityuniversity.warharness.service.servlet;
 
 import edu.cityuniversity.warharness.service.context.DefaultServiceContext;
 import edu.cityuniversity.warharness.service.context.ServiceContext;
-import edu.cityuniversity.warharness.service.handler.HttpRequestHandler;
-import edu.cityuniversity.warharness.service.handler.Request;
+import edu.cityuniversity.warharness.service.handler.HandlerChain;
+import edu.cityuniversity.warharness.service.entity.Request;
 import edu.cityuniversity.warharness.service.handler.RequestHandler;
-import edu.cityuniversity.warharness.service.handler.Response;
+import edu.cityuniversity.warharness.service.entity.Response;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,12 +16,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @author rajarar
+ *
  */
 @WebServlet(
         name = "Servlet to process requests",
-        description = "Test servlet",
-        urlPatterns = "/test"
+        description = "Servlet to process requests",
+        urlPatterns = "/api"
 )
 public class APIServlet extends HttpServlet {
 
@@ -31,7 +31,7 @@ public class APIServlet extends HttpServlet {
     public void init() {
         // Do required initialization
         this.serviceContext = new DefaultServiceContext();
-        this.handler = new HttpRequestHandler();
+        this.handler = HandlerChain.create();
 
     }
 

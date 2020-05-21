@@ -1,7 +1,10 @@
 package edu.cityuniversity.warharness.service.handler;
 
+import edu.cityuniversity.warharness.service.entity.Request;
+import edu.cityuniversity.warharness.service.entity.Response;
+
 /**
- * @author rajarar
+ *
  */
 public interface RequestHandler<T extends Request, R extends Response> {
 

@@ -1,7 +1,7 @@
 package edu.cityuniversity.warharness.service.context;
 
 /**
- * @author rajarar
+ *
  */
 public class DefaultServiceContext implements ServiceContext {
 

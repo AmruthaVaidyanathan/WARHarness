@@ -38,7 +38,7 @@ public class APIServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        final Request simpleRequest = new Request(request);
+        final Request simpleRequest = Request.builder().withServletRequest(request).build();
         final Response finalResponse = handler.handle(simpleRequest);
 
         // Set response content type

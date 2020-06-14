@@ -4,20 +4,20 @@ import edu.cityuniversity.warharness.service.entity.Request;
 import edu.cityuniversity.warharness.service.entity.Response;
 
 /**
- * Provided a Request with body
+ * @author rajarar
  */
-public class CrawlBackend implements Backend {
-
-    public CrawlBackend() {
-
-    }
+public class HelloBackend implements Backend {
 
     @Override
     public Response serve(final Request request) {
+        final String message = request.queryValue("user")
+                .map(user -> "Hello from " + user)
+                .orElse("No user found. Hello from the service.");
+
+        final String response = "{\"message\" : \"" + message + "\" }";
         return Response.builder()
-                .withPayload("{\"source\":\"com.warharness.test\"}")
-                .withStatusCode(200)
                 .withContentType("application/json")
+                .withPayload(response)
                 .build();
     }
 }

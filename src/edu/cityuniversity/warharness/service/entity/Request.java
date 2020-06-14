@@ -1,6 +1,7 @@
 package edu.cityuniversity.warharness.service.entity;
 
 import com.google.common.collect.ImmutableMap;
+import edu.cityuniversity.warharness.service.operations.API;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
@@ -14,10 +15,16 @@ public class Request {
 
     private Map<String, String> queryParams;
     private Map<String, String> headers;
+    private API operation;
 
     private Request(final Builder builder) {
         this.queryParams = queryParams(builder.request);
         this.headers = headers(builder.request);
+        this.operation = extractOperation(builder.request);
+    }
+
+    private API extractOperation(final HttpServletRequest request) {
+        return API.of(request.getHeader("Accept"));
     }
 
     private static Map<String, String> headers(final HttpServletRequest request) {
@@ -56,8 +63,11 @@ public class Request {
         return getString(key, headers);
     }
 
+    public API operation() {
+        return operation;
+    }
+
     private static Optional<String> getString(String key, Map<String, String> headers) {
-        System.out.println(headers);
         if (headers.containsKey(key)) {
             return Optional.of(headers.get(key));
         }

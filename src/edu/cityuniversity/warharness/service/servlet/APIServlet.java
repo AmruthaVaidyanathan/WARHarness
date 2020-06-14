@@ -1,7 +1,6 @@
 package edu.cityuniversity.warharness.service.servlet;
 
 import edu.cityuniversity.warharness.service.context.DefaultServiceContext;
-import edu.cityuniversity.warharness.service.context.ServiceContext;
 import edu.cityuniversity.warharness.service.handler.HandlerChain;
 import edu.cityuniversity.warharness.service.entity.Request;
 import edu.cityuniversity.warharness.service.handler.RequestHandler;
@@ -25,20 +24,20 @@ import java.io.PrintWriter;
 )
 public class APIServlet extends HttpServlet {
 
-    private ServiceContext serviceContext;
     private RequestHandler<Request, Response> handler;
 
     public void init() {
         // Do required initialization
-        this.serviceContext = new DefaultServiceContext();
-        this.handler = HandlerChain.create();
-
+        this.handler = HandlerChain.create(new DefaultServiceContext());
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        final Request simpleRequest = Request.builder().withServletRequest(request).build();
+        final Request simpleRequest = Request.builder()
+                .withServletRequest(request)
+                .build();
+
         final Response finalResponse = handler.handle(simpleRequest);
 
         // Set response content type

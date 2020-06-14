@@ -10,5 +10,6 @@ the overall experience of the web page.
 # Test
 ```bash
 curl -H "x-cityu-client: WARHarnessWebUI" \
+    -H "Accept: CrawlAPI/v1" \
    "http://localhost:8080/WARHarness/api?user=ruth"
 ```

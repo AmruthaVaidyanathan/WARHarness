@@ -1,18 +1,17 @@
 package edu.cityuniversity.warharness.service.handler;
 
+import edu.cityuniversity.warharness.service.context.ServiceContext;
 import edu.cityuniversity.warharness.service.handler.authentication.AuthenticationHandler;
 import edu.cityuniversity.warharness.service.handler.request.HttpRequestHandler;
-import edu.cityuniversity.warharness.service.handler.throttling.ThrottlingHandler;
 
 /**
  *
  */
 public class HandlerChain {
 
-    public static RequestHandler create() {
+    public static RequestHandler create(final ServiceContext context) {
         return new AuthenticationHandler(
-                new ThrottlingHandler(
-                        new HttpRequestHandler()));
+                    new HttpRequestHandler(context));
     }
 
 }

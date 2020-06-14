@@ -11,5 +11,5 @@ the overall experience of the web page.
 ```bash
 curl -H "x-cityu-client: WARHarnessWebUI" \
     -H "Accept: CrawlAPI/v1" \
-   "http://localhost:8080/WARHarness/api?user=ruth"
+   "http://localhost:8080/WARHarness/api?url=https://www.google.com"
 ```

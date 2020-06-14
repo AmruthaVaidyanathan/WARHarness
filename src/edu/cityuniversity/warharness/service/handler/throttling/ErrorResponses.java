@@ -14,4 +14,20 @@ public class ErrorResponses {
                 .withPayload("{\"message\" : \"Unrecognized caller\"}")
                 .build();
     }
+
+    public static Response badRequest(final String message) {
+        return Response.builder()
+                .withContentType("application/json")
+                .withStatusCode(400)
+                .withPayload("{\"message\" : \"" + message + "\"")
+                .build();
+    }
+
+    public static Response failure(final String message) {
+        return Response.builder()
+                .withContentType("application/json")
+                .withStatusCode(503)
+                .withPayload("{\"message\" : \"" + message + "\"")
+                .build();
+    }
 }

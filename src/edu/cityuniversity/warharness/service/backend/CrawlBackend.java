@@ -1,5 +1,7 @@
 package edu.cityuniversity.warharness.service.backend;
 
+import edu.cityuniversity.warharness.crawl.JsoupRetriever;
+import edu.cityuniversity.warharness.crawl.Retriever;
 import edu.cityuniversity.warharness.crawl.WebPageRetriever;
 import edu.cityuniversity.warharness.pojo.WebHarnessClass;
 import edu.cityuniversity.warharness.pojo.WebPage;
@@ -16,11 +18,11 @@ import java.util.Optional;
  */
 public class CrawlBackend implements Backend {
 
-    private final WebPageRetriever retriever;
+    private final Retriever retriever;
     private final WarHarnessParser parser;
 
     public CrawlBackend() {
-        retriever = new WebPageRetriever();
+        retriever = new JsoupRetriever();
         parser = new WarHarnessParser();
     }
 

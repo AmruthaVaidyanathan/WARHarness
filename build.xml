@@ -32,6 +32,9 @@
         <fileset dir="${src.lib}">
             <include name="*.jar" />
         </fileset>
+        <fileset dir="${src.lib}">
+            <include name="**/*.jar" />
+        </fileset>
     </path>
 
     <target name="all" depends="clean,compile,dist"
@@ -59,7 +62,7 @@
         <copy todir="${work.home}/WEB-INF/classes">
             <fileset dir="${src.home}" excludes="**/*.java" />
         </copy>
-        <copy todir="${work.home}/WEB-INF/lib">
+        <copy todir="${work.home}/WEB-INF/lib" flatten="true">
             <fileset dir="${src.lib}" excludes="**/*.java" />
         </copy>
 

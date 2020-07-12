@@ -2,12 +2,11 @@ package edu.cityuniversity.warharness.service.backend;
 
 import edu.cityuniversity.warharness.crawl.JsoupRetriever;
 import edu.cityuniversity.warharness.crawl.Retriever;
-import edu.cityuniversity.warharness.crawl.WebPageRetriever;
 import edu.cityuniversity.warharness.pojo.WebHarnessClass;
 import edu.cityuniversity.warharness.pojo.WebPage;
 import edu.cityuniversity.warharness.service.entity.Request;
 import edu.cityuniversity.warharness.service.entity.Response;
-import edu.cityuniversity.warharness.service.handler.throttling.ErrorResponses;
+import edu.cityuniversity.warharness.service.handler.ErrorResponses;
 import edu.cityuniversity.warharness.transform.WarHarnessParser;
 
 import java.io.IOException;

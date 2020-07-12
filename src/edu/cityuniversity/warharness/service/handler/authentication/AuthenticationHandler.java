@@ -4,7 +4,7 @@ import edu.cityuniversity.warharness.service.WARHarnessHeaders;
 import edu.cityuniversity.warharness.service.entity.Request;
 import edu.cityuniversity.warharness.service.entity.Response;
 import edu.cityuniversity.warharness.service.handler.RequestHandler;
-import edu.cityuniversity.warharness.service.handler.throttling.ErrorResponses;
+import edu.cityuniversity.warharness.service.handler.ErrorResponses;
 
 import java.util.Optional;
 

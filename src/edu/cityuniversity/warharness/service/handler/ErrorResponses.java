@@ -1,4 +1,4 @@
-package edu.cityuniversity.warharness.service.handler.throttling;
+package edu.cityuniversity.warharness.service.handler;
 
 import edu.cityuniversity.warharness.service.entity.Response;
 

@@ -18,9 +18,7 @@ curl -H "x-cityu-client: WARHarnessWebUI" \
 
 ## 2
 ```bash
-curl -H "x-cityu-client: WARHarnessWebUI" \
-    -H "Accept: CrawlAPI/v1" \
-   "http://localhost:8080/WARHarness/api?url=https://www.google.com"
+curl -H "x-cityu-client: WARHarnessWebUI" -H "Accept: CrawlAPI/v1" "http://localhost:8080/WARHarness/api?url=https://www.glassdoor.com/"
 ```
 
 Output:

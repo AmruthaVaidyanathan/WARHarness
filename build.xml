@@ -1,7 +1,7 @@
 <project name="WARHarness" default="help" basedir=".">
     <!-- Define the properties used by the build -->
     <property name="app.name"      value="WARHarness" />
-    <property name="tcserver.home" value="/usr/local/Cellar/tomcat/9.0.35/libexec" />
+    <property name="tcserver.home" value="/Users/rajaramanraghunathan/Downloads/WarHarness/apache-tomcat-8.5.57" />
     <property name="work.home"     value="${basedir}/build/work" />
     <property name="dist.home"     value="${basedir}/build/dist" />
     <property name="src.home"      value="${basedir}/src" />
@@ -75,11 +75,17 @@
     </target>
 
     <target name="package-and-deploy" depends="dist">
-        <copy todir="/usr/local/Cellar/tomcat/9.0.35/libexec/webapps/">
+        <copy todir="${tcserver.home}/webapps/">
             <fileset dir="${basedir}/build/dist" />
         </copy>
     </target>
 
     <target name="release" depends="package-and-deploy" />
+
+    <target name="server">
+        <exec command="${tcserver.home}/bin/catalina.sh" >
+            <arg value="run" />
+        </exec>
+    </target>
 
 </project>
